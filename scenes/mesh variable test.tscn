@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bppy7sujbymjb"]
+
+[ext_resource type="Script" uid="uid://bvj8l76auum5l" path="res://scripts/sphere_mesh.gd" id="1_nga6f"]
+[ext_resource type="Script" uid="uid://btt08hpopbqoj" path="res://scripts/scalable_sphere.gd" id="2_tjqoe"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_tjqoe"]
+radius = 7.93
+height = 15.86
+
+[sub_resource type="SphereMesh" id="SphereMesh_0dd4y"]
+radius = 8.58
+height = 17.16
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tjqoe"]
+radius = 8.58
+
+[node name="Node3D" type="Node3D"]
+
+[node name="sphere mesh" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("SphereMesh_tjqoe")
+script = ExtResource("1_nga6f")
+r = 7.93
+
+[node name="scalable sphere" type="RigidBody3D" parent="."]
+gravity_scale = 0.0
+script = ExtResource("2_tjqoe")
+radius = 8.58
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="scalable sphere"]
+mesh = SubResource("SphereMesh_0dd4y")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="scalable sphere"]
+shape = SubResource("SphereShape3D_tjqoe")

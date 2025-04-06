@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqircp1gljrbl"]
+
+[ext_resource type="PhysicsMaterial" uid="uid://be4pyuq067pvy" path="res://materials/planet material.phymat" id="1_pbhp0"]
+[ext_resource type="Script" uid="uid://bfw3im0m6qaf1" path="res://scripts/celestial_body.gd" id="1_vuvvy"]
+
+[node name="celestial body" type="RigidBody3D"]
+mass = 100.0
+physics_material_override = ExtResource("1_pbhp0")
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("1_vuvvy")
+radius = 0.5

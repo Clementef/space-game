@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://hi76u3us6umi"]
+
+[ext_resource type="PackedScene" uid="uid://dqircp1gljrbl" path="res://game objects/celestial_body.tscn" id="1_6c35u"]
+[ext_resource type="PackedScene" uid="uid://cu1phvum527mk" path="res://game objects/env.tscn" id="1_b63dt"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="env" parent="." instance=ExtResource("1_b63dt")]
+
+[node name="solar system" type="Node3D" parent="."]
+
+[node name="sun" parent="solar system" instance=ExtResource("1_6c35u")]
+mass = 500.0
+gravitation = false
+
+[node name="planet" parent="solar system" node_paths=PackedStringArray("orbiting") instance=ExtResource("1_6c35u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+orbiting = NodePath("../sun")
+
+[node name="planet2" parent="solar system" node_paths=PackedStringArray("orbiting") instance=ExtResource("1_6c35u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 5)
+orbiting = NodePath("../sun")
+
+[node name="planet3" parent="solar system" node_paths=PackedStringArray("orbiting") instance=ExtResource("1_6c35u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+orbiting = NodePath("../sun")
+
+[node name="camera pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="camera pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 14)
+size = 20.0

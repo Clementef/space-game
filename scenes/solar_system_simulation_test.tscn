@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://311e1qk767x0"]
+
+[ext_resource type="PackedScene" uid="uid://cu1phvum527mk" path="res://game objects/env.tscn" id="1_j51jr"]
+[ext_resource type="Script" uid="uid://c0lnxp3cklkvh" path="res://scripts/celestial_body.gd" id="2_ddclp"]
+
+[node name="main" type="Node3D"]
+
+[node name="env" parent="." instance=ExtResource("1_j51jr")]
+
+[node name="camera pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 0.999999, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="camera pivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1400)
+
+[node name="solar system" type="Node3D" parent="."]
+
+[node name="sun" type="RigidBody3D" parent="solar system"]
+mass = 100.0
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("2_ddclp")
+gravitation = false
+radius = 100.0
+metadata/_custom_type_script = "uid://c0lnxp3cklkvh"
+
+[node name="CelestialBody2" type="RigidBody3D" parent="solar system" node_paths=PackedStringArray("orbiting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 297.533)
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("2_ddclp")
+orbiting = NodePath("../sun")
+radius = 20.0
+metadata/_custom_type_script = "uid://c0lnxp3cklkvh"
+
+[node name="CelestialBody3" type="RigidBody3D" parent="solar system" node_paths=PackedStringArray("orbiting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 516.375)
+mass = 3.0
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("2_ddclp")
+orbiting = NodePath("../sun")
+radius = 30.0
+metadata/_custom_type_script = "uid://c0lnxp3cklkvh"
+
+[node name="CelestialBody4" type="RigidBody3D" parent="solar system" node_paths=PackedStringArray("orbiting")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 763.868)
+mass = 5.0
+gravity_scale = 0.0
+linear_damp_mode = 1
+angular_damp_mode = 1
+script = ExtResource("2_ddclp")
+orbiting = NodePath("../sun")
+radius = 50.0
+metadata/_custom_type_script = "uid://c0lnxp3cklkvh"
